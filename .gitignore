@@ -1,0 +1,42 @@
+# Anthropics Skills Repository Clone
+# This directory contains a clone of https://github.com/anthropics/skills
+# It should not be committed to version control as it's a third-party repository
+
+anthropics-skills/
+
+# Alternative: If you want to keep the structure but ignore content
+# anthropics-skills/*
+# !anthropics-skills/.gitkeep
+
+# Local development files
+*.log
+*.tmp
+*.cache
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+skill-usage.log
+*.backup
+*.bak
+
+# Temporary files
+temp/
+tmp/
+*.temp
