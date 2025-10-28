@@ -74,16 +74,55 @@ git clone https://github.com/anthropics/skills.git anthropics-skills
 
 Copy the critical skills rule to Cursor's global configuration / project configuration / role-custom-agent instructions
 
-### Step 3: Verify Skills Index
+### Step 3: Verify and Update Skills Index
 
-Ensure `Skills index.md` contains:
+⚠️ **CRITICAL STEP**: Update absolute paths in `Skills index.md`
+
+After cloning/moving this repository to your location, you MUST update all absolute paths in `Skills index.md` to match your workspace location.
+
+**Option 1: Use automated script (Recommended)**
+
+Run the provided PowerShell script to automatically update all paths:
+
+```powershell
+# Navigate to the skills directory
+cd "YOUR_ACTUAL_PATH"
+
+# Run the update script (it will auto-detect your current path)
+.\update-paths.ps1
+
+# Or specify custom path explicitly
+.\update-paths.ps1 -NewPath "C:\Your\Custom\Path\"
+```
+
+**Option 2: Manual update**
+
+1. Open `Skills index.md`
+2. Find and replace all occurrences of the base path:
+   - Old path: `D:\My Projects\FrameWork Global\LLM Skills\`
+   - New path: `YOUR_ACTUAL_PATH\` (e.g., `C:\Projects\LLM Skills\`)
+
+3. Example PowerShell command for manual update:
+```powershell
+# Navigate to the skills directory
+cd "YOUR_ACTUAL_PATH"
+
+# Replace old path with your new path (PowerShell)
+$oldPath = "D:\\My Projects\\FrameWork Global\\LLM Skills\\"
+$newPath = "YOUR_ACTUAL_PATH\\"
+(Get-Content "Skills index.md") -replace [regex]::Escape($oldPath), $newPath | Set-Content "Skills index.md"
+```
+
+**Verify Skills Index contains:**
 - 🚨 Critical importance warnings
 - 🔍 Keyword detection system
 - 🧠 Semantic analysis rules
 - ⚡ Mandatory verification steps
-- 📚 References to anthropics-skills
+- 📚 References to anthropics-skills (with UPDATED absolute paths)
 
-### Step 3: Test the Setup
+### Step 4: Test the Setup
+
+⚠️ **IMPORTANT**: Use a complex test request, NOT a simple one. Simple requests may cause the agent to skip skill usage.
 
 Use this test request to verify the framework works:
 
@@ -97,6 +136,12 @@ Write a PowerShell script that checks Docker container status, waits 5 seconds, 
 - Studies POWERSHELL_RULES.md
 - Applies PowerShell-specific syntax
 - Mentions which skill was used
+
+**Why this test works:**
+- ✅ Complex multi-step task
+- ✅ Combines Docker + PowerShell + HTTP request
+- ✅ Requires domain-specific knowledge
+- ✅ Forces agent to consult skill files
 
 ## 🔍 How It Works
 
@@ -147,6 +192,25 @@ Check and actualize PS & Docker skills for yourself (this is only my example)
 
 
 ## 🧪 Testing the Framework
+
+⚠️ **IMPORTANT: Use Complex Test Cases**
+
+When testing the skills framework, **DO NOT use overly simple requests**. Simple tasks may cause the agent to skip skill usage because:
+- The agent considers simple tasks trivial and not requiring specialized knowledge
+- Skills and project rules may be ignored for straightforward requests
+- The framework is designed for complex, multi-step tasks requiring domain expertise
+
+**❌ Bad test examples (too simple):**
+- "Write hello world in PowerShell"
+- "Create a simple HTML page"
+- "Show me a Docker command"
+
+**✅ Good test examples (sufficiently complex):**
+- "Write a PowerShell script that checks Docker container status, waits 5 seconds, then makes an HTTP request to localhost:8080/health"
+- "Create a React component with state management and API integration"
+- "Build a Docker compose setup with health checks and volume management"
+
+---
 
 ### Test Case 1: PowerShell Script
 **Request**: "Write a PowerShell script to check system status"
