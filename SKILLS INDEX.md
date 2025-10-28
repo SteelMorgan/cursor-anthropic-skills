@@ -1,5 +1,12 @@
 # Skills Index
 
+**THIS IS A DIRECTORY/MAP FILE**
+- This file contains ONLY paths to skill files
+- This file is NOT a source of knowledge itself
+- After consulting this file, you MUST read the actual SKILL files listed here
+
+---
+
 ## 📂 PATH CONVENTION
 **All paths in this file are relative to workspace root (project root directory).**
 - Workspace root is detected automatically
@@ -7,157 +14,211 @@
 - Use forward slashes `/` even on Windows
 - Paths start from workspace root, NOT from this file location
 
-## 🚨 CRITICALLY IMPORTANT - MANDATORY READING 🚨
-**AGENT MUST READ THIS FILE BEFORE ANY RESPONSE!**
+---
 
-### AUTOMATIC REQUEST ANALYSIS
-**MANDATORY** to analyze user request using BOTH keyword detection AND semantic analysis:
+## 🗺️ HOW TO USE THIS INDEX
 
-#### 🔍 KEYWORD DETECTION SYSTEM
-When detecting the following words/phrases in request - **MANDATORY** to study corresponding skill:
+### THIS FILE IS A MAP, NOT A MANUAL
 
-#### 🧠 SEMANTIC ANALYSIS SYSTEM
-Analyze request meaning and context, not just keywords:
+1. **Analyze your request** - identify keywords and semantic meaning
+2. **Find matching category** in sections below
+3. **Extract file path(s)** of relevant skill(s)
+4. **Read those skill files** - this is where actual knowledge is!
 
-**Script Creation/Execution:**
-- "create script", "write script", "execute command", "run script"
-→ **MANDATORY** to study: `custom-skills/POWERSHELL_RULES.md`
+**Example Flow:**
+```
+Request: "Create a PowerShell script"
+↓
+Index lookup: PowerShell → custom-skills/POWERSHELL_RULES.md
+↓
+ACTION: Read custom-skills/POWERSHELL_RULES.md (the actual skill file!)
+↓
+Apply rules from that file
+```
 
-**Docker Operations:**
-- "manage containers", "docker compose", "container status", "docker health"
-→ **MANDATORY** to study: `custom-skills/DOCKER_SKILLS.md`
+---
 
-**Web Development:**
-- "build website", "create web app", "make UI", "frontend"
-→ **MANDATORY** to study: `anthropics-skills/artifacts-builder/SKILL.md`
+## 🔍 KEYWORD & SEMANTIC MAPPING
 
-**Browser Automation:**
-- "automate browser", "scrape website", "test web page"
-→ **MANDATORY** to study: `anthropics-skills/webapp-testing/SKILL.md`
+### PowerShell/Windows Scripts
+**When you detect:**
+- Keywords: `powershell`, `ps1`, `windows`, `cmd`, `bat`, `gradlew`, `script`
+- Semantic: "create script", "run command", "execute in Windows", "batch file"
 
-**Document Processing:**
-- "create document", "generate report", "make presentation"
-→ **MANDATORY** to study: corresponding document skills
+**Then read this file:**
+→ `custom-skills/POWERSHELL_RULES.md`
 
-**Testing:**
-- "test application", "check functionality", "validate"
-→ **MANDATORY** to study: `anthropics-skills/webapp-testing/SKILL.md`
+---
 
-**1C Development:**
-- "generate 1C code", "create BSL procedure", "write 1C query", "validate BSL", "1C metadata"
-→ **MANDATORY** to study: `custom-skills/1C_BSL_SKILL.md`
+### Docker Operations
+**When you detect:**
+- Keywords: `docker`, `container`, `docker-compose`, `image`, `volume`, `dockerfile`
+- Semantic: "manage containers", "container status", "docker health", "compose up"
 
-**PowerShell/Windows:**
-- `powershell`, `ps1`, `windows`, `cmd`, `bat`, `gradlew`
-→ **MANDATORY** to study: `custom-skills/POWERSHELL_RULES.md`
+**Then read this file:**
+→ `custom-skills/DOCKER_SKILLS.md`
 
-**Docker Operations:**
-- `docker`, `container`, `docker-compose`, `image`, `volume`
-→ **MANDATORY** to study: `custom-skills/DOCKER_SKILLS.md`
+---
 
-**Web Development:**
-- `html`, `react`, `tailwind`, `artifact`, `webapp`, `ui`
-→ **MANDATORY** to study: `anthropics-skills/artifacts-builder/SKILL.md`
+### Web Development
+**When you detect:**
+- Keywords: `html`, `react`, `tailwind`, `artifact`, `webapp`, `ui`, `frontend`, `shadcn`
+- Semantic: "build website", "create web app", "make UI", "design page", "interactive"
 
-**Browser Automation:**
-- `playwright`, `scraping`, `automation`, `browser`, `docker`
-→ **MANDATORY** to study: `anthropics-skills/webapp-testing/SKILL.md`
+**Then read this file:**
+→ `anthropics-skills/artifacts-builder/SKILL.md`
 
-**Documents:**
-- `docx`, `word`, `document` → `anthropics-skills/document-skills/docx/SKILL.md`
-- `pdf`, `adobe` → `anthropics-skills/document-skills/pdf/SKILL.md`
-- `xlsx`, `excel`, `spreadsheet` → `anthropics-skills/document-skills/xlsx/SKILL.md`
-- `pptx`, `powerpoint`, `presentation` → `anthropics-skills/document-skills/pptx/SKILL.md`
+---
 
-**Creative:**
-- `art`, `visual`, `design`, `gif`, `animation` → corresponding creative skills
+### Browser Automation & Testing
+**When you detect:**
+- Keywords: `playwright`, `automation`, `browser`, `scraping`, `testing`, `selenium`
+- Semantic: "automate browser", "scrape website", "test web page", "click button", "fill form"
 
-**Testing:**
-- `test`, `testing`, `webapp` → `anthropics-skills/webapp-testing/SKILL.md`
+**Then read this file:**
+→ `anthropics-skills/webapp-testing/SKILL.md`
 
-**1C/BSL Development:**
-- `1с`, `bsl`, `1c:enterprise`, `справочник`, `документ`, `регистр`, `запрос`
-→ **MANDATORY** to study: `custom-skills/1C_BSL_SKILL.md`
+---
 
-### ⚡ MANDATORY VERIFICATION
-**BEFORE RESPONSE AGENT MUST:**
-1. ✅ Read this file FIRST
-2. ✅ Analyze request using BOTH keyword detection AND semantic analysis
-3. ✅ Study corresponding skill file if ANY match found
-4. ✅ Apply knowledge from skill in response
-5. ✅ Mention which skill was used and why (keyword or semantic match)
-6. ✅ Show evidence of skill application in code/commands
-7. ✅ Use correct syntax from skill rules
+### 1C/BSL Development
+**When you detect:**
+- Keywords: `1с`, `bsl`, `1c:enterprise`, `справочник`, `документ`, `регистр`, `запрос`, `процедура`, `функция`
+- Semantic: "generate 1C code", "create BSL procedure", "1C metadata", "write query", "validate BSL"
 
-**ANALYSIS REQUIREMENTS:**
-- Check for exact keyword matches
-- Analyze request meaning and intent
-- Consider context and implied tasks
-- Apply most relevant skill even if no exact keywords
-- **MUST** reference skill file in response
-- **MUST** show which rules were applied
+**Then read this file:**
+→ `custom-skills/1C_BSL_SKILL.md`
 
-**EXAMPLE OF CORRECT RESPONSE:**
-"I read Skills index.md and detected PowerShell keywords. I studied custom-skills/POWERSHELL_RULES.md and applied the following rules: [list rules]. Here's the script using proper PowerShell syntax..."
+---
 
-**🚨 VIOLATION = CRITICAL ERROR - AGENT WILL BE REPRIMANDED! 🚨**
+### Document Processing
 
-## Custom Skills (Project-Specific)
-- **powershell-scripts** → `custom-skills/POWERSHELL_RULES.md`
-  - PowerShell command generation in Windows
-- **docker-operations** → `custom-skills/DOCKER_SKILLS.md`
-  - Docker container and service management
-- **1c-bsl-development** → `custom-skills/1C_BSL_SKILL.md`
-  - 1C:Enterprise (BSL) code generation with anti-hallucination validation
+#### Word Documents (DOCX)
+**When you detect:**
+- Keywords: `docx`, `word`, `document`, `.docx`
+- Semantic: "create document", "write report", "make .docx"
 
-## Skills Collection
-**All paths relative to workspace root**
+**Then read this file:**
+→ `anthropics-skills/document-skills/docx/SKILL.md`
 
-### Creative & Design
-- **algorithmic-art** → `anthropics-skills/algorithmic-art/SKILL.md`
-  - Creating algorithmic art with p5.js, interactive parameters
-- **canvas-design** → `anthropics-skills/canvas-design/SKILL.md`
-  - Creating visual art in .png/.pdf formats
-- **slack-gif-creator** → `anthropics-skills/slack-gif-creator/SKILL.md`
-  - Creating animated GIFs for Slack with size validators
+#### PDF Documents
+**When you detect:**
+- Keywords: `pdf`, `adobe`, `.pdf`
+- Semantic: "create PDF", "merge PDFs", "extract from PDF", "fillable forms"
 
-### Development & Technical
-- **artifacts-builder** → `anthropics-skills/artifacts-builder/SKILL.md`
-  - Creating complex HTML artifacts with React, Tailwind CSS, shadcn/ui
-- **mcp-builder** → `anthropics-skills/mcp-builder/SKILL.md`
-  - Creating MCP servers for external API integration
-- **playwright-docker-automation** → `anthropics-skills/webapp-testing/SKILL.md`
-  - Browser automation using Playwright in Docker containers for web scraping and testing
-- **webapp-testing** → `anthropics-skills/webapp-testing/SKILL.md`
-  - Testing web applications with Playwright
+**Then read this file:**
+→ `anthropics-skills/document-skills/pdf/SKILL.md`
 
-### Enterprise & Communication
-- **brand-guidelines** → `anthropics-skills/brand-guidelines/SKILL.md`
-  - Applying Anthropic brand colors and typography
-- **internal-comms** → `anthropics-skills/internal-comms/SKILL.md`
-  - Writing internal communications (reports, updates, FAQ)
-- **theme-factory** → `anthropics-skills/theme-factory/SKILL.md`
-  - Styling artifacts with themes (10 ready-made + creating new ones)
+#### Excel Spreadsheets (XLSX)
+**When you detect:**
+- Keywords: `xlsx`, `excel`, `spreadsheet`, `.xlsx`, `csv`
+- Semantic: "create spreadsheet", "analyze data", "make charts", "formulas"
 
-### Meta Skills
-- **skill-creator** → `anthropics-skills/skill-creator/SKILL.md`
-  - Creating effective skills for extending agent capabilities
-- **template-skill** → `anthropics-skills/template-skill/SKILL.md`
-  - Basic template for creating new skills
+**Then read this file:**
+→ `anthropics-skills/document-skills/xlsx/SKILL.md`
+
+#### PowerPoint Presentations (PPTX)
+**When you detect:**
+- Keywords: `pptx`, `powerpoint`, `presentation`, `.pptx`, `slides`
+- Semantic: "create presentation", "make slides", "slide deck"
+
+**Then read this file:**
+→ `anthropics-skills/document-skills/pptx/SKILL.md`
+
+---
+
+## 📚 COMPLETE SKILLS CATALOG
+
+### Custom Skills (Project-Specific)
+
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| PowerShell Scripts | `custom-skills/POWERSHELL_RULES.md` | PowerShell command generation in Windows |
+| Docker Operations | `custom-skills/DOCKER_SKILLS.md` | Docker container and service management |
+| 1C/BSL Development | `custom-skills/1C_BSL_SKILL.md` | 1C:Enterprise (BSL) code generation with validation |
+
+---
+
+### Creative & Design Skills
+
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| Algorithmic Art | `anthropics-skills/algorithmic-art/SKILL.md` | Creating algorithmic art with p5.js |
+| Canvas Design | `anthropics-skills/canvas-design/SKILL.md` | Creating visual art in .png/.pdf formats |
+| Slack GIF Creator | `anthropics-skills/slack-gif-creator/SKILL.md` | Creating animated GIFs for Slack |
+
+---
+
+### Development & Technical Skills
+
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| Artifacts Builder | `anthropics-skills/artifacts-builder/SKILL.md` | Complex HTML artifacts with React, Tailwind, shadcn/ui |
+| MCP Builder | `anthropics-skills/mcp-builder/SKILL.md` | Creating MCP servers for external API integration |
+| Web App Testing | `anthropics-skills/webapp-testing/SKILL.md` | Browser automation using Playwright for testing/scraping |
+
+---
 
 ### Document Skills
-- **docx** → `anthropics-skills/document-skills/docx/SKILL.md`
-  - Creating/editing .docx with change tracking
-- **pdf** → `anthropics-skills/document-skills/pdf/SKILL.md`
-  - PDF manipulations: extraction, creation, merging, forms
-- **pptx** → `anthropics-skills/document-skills/pptx/SKILL.md`
-  - Creating/editing presentations with templates and charts
-- **xlsx** → `anthropics-skills/document-skills/xlsx/SKILL.md`
-  - Working with spreadsheets: formulas, data analysis, visualization
 
-## Usage
-- **Creative**: algorithmic-art, canvas-design, slack-gif-creator
-- **Development**: artifacts-builder, mcp-builder, playwright-docker-automation, webapp-testing  
-- **Business**: brand-guidelines, internal-comms, theme-factory
-- **Documents**: docx, pdf, pptx, xlsx
-- **Meta**: skill-creator, template-skill
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| DOCX | `anthropics-skills/document-skills/docx/SKILL.md` | Creating/editing .docx with change tracking |
+| PDF | `anthropics-skills/document-skills/pdf/SKILL.md` | PDF manipulations: extraction, creation, merging, forms |
+| PPTX | `anthropics-skills/document-skills/pptx/SKILL.md` | Creating/editing presentations with templates and charts |
+| XLSX | `anthropics-skills/document-skills/xlsx/SKILL.md` | Working with spreadsheets: formulas, data analysis |
+
+---
+
+### Enterprise & Communication Skills
+
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| Brand Guidelines | `anthropics-skills/brand-guidelines/SKILL.md` | Applying Anthropic brand colors and typography |
+| Internal Communications | `anthropics-skills/internal-comms/SKILL.md` | Writing internal communications (reports, updates, FAQ) |
+| Theme Factory | `anthropics-skills/theme-factory/SKILL.md` | Styling artifacts with ready-made and custom themes |
+
+---
+
+### Meta Skills
+
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| Skill Creator | `anthropics-skills/skill-creator/SKILL.md` | Creating effective skills for extending agent capabilities |
+| Template Skill | `anthropics-skills/template-skill/SKILL.md` | Basic template for creating new skills |
+
+---
+
+## 🎯 QUICK LOOKUP BY USE CASE
+
+### "I need to create..."
+- **Script/automation** → `custom-skills/POWERSHELL_RULES.md`
+- **Website/web app** → `anthropics-skills/artifacts-builder/SKILL.md`
+- **Document (.docx)** → `anthropics-skills/document-skills/docx/SKILL.md`
+- **Presentation (.pptx)** → `anthropics-skills/document-skills/pptx/SKILL.md`
+- **Spreadsheet (.xlsx)** → `anthropics-skills/document-skills/xlsx/SKILL.md`
+- **PDF** → `anthropics-skills/document-skills/pdf/SKILL.md`
+- **GIF animation** → `anthropics-skills/slack-gif-creator/SKILL.md`
+- **1C code** → `custom-skills/1C_BSL_SKILL.md`
+
+### "I need to manage..."
+- **Docker containers** → `custom-skills/DOCKER_SKILLS.md`
+- **MCP servers** → `anthropics-skills/mcp-builder/SKILL.md`
+
+### "I need to test..."
+- **Web application** → `anthropics-skills/webapp-testing/SKILL.md`
+- **Browser automation** → `anthropics-skills/webapp-testing/SKILL.md`
+
+---
+
+## ⚠️ IMPORTANT REMINDER
+
+**This index is a MAP, not the KNOWLEDGE itself!**
+
+After finding paths here:
+1. ✅ Extract file path(s)
+2. ✅ Read those actual SKILL files
+3. ✅ Apply knowledge from SKILL files (not from this index)
+4. ✅ Mention which SKILL files you read in your response
+
+**Wrong approach**: "I consulted the skills index about PowerShell"
+**Correct approach**: "I found PowerShell skill in index, then read custom-skills/POWERSHELL_RULES.md"
