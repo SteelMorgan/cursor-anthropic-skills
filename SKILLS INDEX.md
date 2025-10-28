@@ -1,5 +1,12 @@
 # Skills Index
 
+## 📂 PATH CONVENTION
+**All paths in this file are relative to workspace root (project root directory).**
+- Workspace root is detected automatically
+- Format: `folder/subfolder/file.md`
+- Use forward slashes `/` even on Windows
+- Paths start from workspace root, NOT from this file location
+
 ## 🚨 CRITICALLY IMPORTANT - MANDATORY READING 🚨
 **AGENT MUST READ THIS FILE BEFORE ANY RESPONSE!**
 
@@ -22,11 +29,11 @@ Analyze request meaning and context, not just keywords:
 
 **Web Development:**
 - "build website", "create web app", "make UI", "frontend"
-→ **MANDATORY** to study: `artifacts-builder/SKILL.md`
+→ **MANDATORY** to study: `anthropics-skills/artifacts-builder/SKILL.md`
 
 **Browser Automation:**
 - "automate browser", "scrape website", "test web page"
-→ **MANDATORY** to study: `playwright-docker-automation/SKILL.md`
+→ **MANDATORY** to study: `anthropics-skills/webapp-testing/SKILL.md`
 
 **Document Processing:**
 - "create document", "generate report", "make presentation"
@@ -34,7 +41,11 @@ Analyze request meaning and context, not just keywords:
 
 **Testing:**
 - "test application", "check functionality", "validate"
-→ **MANDATORY** to study: `webapp-testing/SKILL.md`
+→ **MANDATORY** to study: `anthropics-skills/webapp-testing/SKILL.md`
+
+**1C Development:**
+- "generate 1C code", "create BSL procedure", "write 1C query", "validate BSL", "1C metadata"
+→ **MANDATORY** to study: `custom-skills/1C_BSL_SKILL.md`
 
 **PowerShell/Windows:**
 - `powershell`, `ps1`, `windows`, `cmd`, `bat`, `gradlew`
@@ -46,23 +57,27 @@ Analyze request meaning and context, not just keywords:
 
 **Web Development:**
 - `html`, `react`, `tailwind`, `artifact`, `webapp`, `ui`
-→ **MANDATORY** to study: `artifacts-builder/SKILL.md`
+→ **MANDATORY** to study: `anthropics-skills/artifacts-builder/SKILL.md`
 
 **Browser Automation:**
 - `playwright`, `scraping`, `automation`, `browser`, `docker`
-→ **MANDATORY** to study: `playwright-docker-automation/SKILL.md`
+→ **MANDATORY** to study: `anthropics-skills/webapp-testing/SKILL.md`
 
 **Documents:**
-- `docx`, `word`, `document` → `document-skills/docx/SKILL.md`
-- `pdf`, `adobe` → `document-skills/pdf/SKILL.md`
-- `xlsx`, `excel`, `spreadsheet` → `document-skills/xlsx/SKILL.md`
-- `pptx`, `powerpoint`, `presentation` → `document-skills/pptx/SKILL.md`
+- `docx`, `word`, `document` → `anthropics-skills/document-skills/docx/SKILL.md`
+- `pdf`, `adobe` → `anthropics-skills/document-skills/pdf/SKILL.md`
+- `xlsx`, `excel`, `spreadsheet` → `anthropics-skills/document-skills/xlsx/SKILL.md`
+- `pptx`, `powerpoint`, `presentation` → `anthropics-skills/document-skills/pptx/SKILL.md`
 
 **Creative:**
 - `art`, `visual`, `design`, `gif`, `animation` → corresponding creative skills
 
 **Testing:**
-- `test`, `testing`, `webapp` → `webapp-testing/SKILL.md`
+- `test`, `testing`, `webapp` → `anthropics-skills/webapp-testing/SKILL.md`
+
+**1C/BSL Development:**
+- `1с`, `bsl`, `1c:enterprise`, `справочник`, `документ`, `регистр`, `запрос`
+→ **MANDATORY** to study: `custom-skills/1C_BSL_SKILL.md`
 
 ### ⚡ MANDATORY VERIFICATION
 **BEFORE RESPONSE AGENT MUST:**
@@ -92,50 +107,52 @@ Analyze request meaning and context, not just keywords:
   - PowerShell command generation in Windows
 - **docker-operations** → `custom-skills/DOCKER_SKILLS.md`
   - Docker container and service management
+- **1c-bsl-development** → `custom-skills/1C_BSL_SKILL.md`
+  - 1C:Enterprise (BSL) code generation with anti-hallucination validation
 
 ## Skills Collection
-**Source**: `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\`
+**All paths relative to workspace root**
 
 ### Creative & Design
-- **algorithmic-art** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\algorithmic-art\SKILL.md`
+- **algorithmic-art** → `anthropics-skills/algorithmic-art/SKILL.md`
   - Creating algorithmic art with p5.js, interactive parameters
-- **canvas-design** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\canvas-design\SKILL.md`
+- **canvas-design** → `anthropics-skills/canvas-design/SKILL.md`
   - Creating visual art in .png/.pdf formats
-- **slack-gif-creator** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\slack-gif-creator\SKILL.md`
+- **slack-gif-creator** → `anthropics-skills/slack-gif-creator/SKILL.md`
   - Creating animated GIFs for Slack with size validators
 
 ### Development & Technical
-- **artifacts-builder** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\artifacts-builder\SKILL.md`
+- **artifacts-builder** → `anthropics-skills/artifacts-builder/SKILL.md`
   - Creating complex HTML artifacts with React, Tailwind CSS, shadcn/ui
-- **mcp-builder** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\mcp-builder\SKILL.md`
+- **mcp-builder** → `anthropics-skills/mcp-builder/SKILL.md`
   - Creating MCP servers for external API integration
-- **playwright-docker-automation** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\playwright-docker-automation\SKILL.md`
+- **playwright-docker-automation** → `anthropics-skills/webapp-testing/SKILL.md`
   - Browser automation using Playwright in Docker containers for web scraping and testing
-- **webapp-testing** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\webapp-testing\SKILL.md`
+- **webapp-testing** → `anthropics-skills/webapp-testing/SKILL.md`
   - Testing web applications with Playwright
 
 ### Enterprise & Communication
-- **brand-guidelines** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\brand-guidelines\SKILL.md`
+- **brand-guidelines** → `anthropics-skills/brand-guidelines/SKILL.md`
   - Applying Anthropic brand colors and typography
-- **internal-comms** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\internal-comms\SKILL.md`
+- **internal-comms** → `anthropics-skills/internal-comms/SKILL.md`
   - Writing internal communications (reports, updates, FAQ)
-- **theme-factory** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\theme-factory\SKILL.md`
+- **theme-factory** → `anthropics-skills/theme-factory/SKILL.md`
   - Styling artifacts with themes (10 ready-made + creating new ones)
 
 ### Meta Skills
-- **skill-creator** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\skill-creator\SKILL.md`
+- **skill-creator** → `anthropics-skills/skill-creator/SKILL.md`
   - Creating effective skills for extending agent capabilities
-- **template-skill** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\template-skill\SKILL.md`
+- **template-skill** → `anthropics-skills/template-skill/SKILL.md`
   - Basic template for creating new skills
 
 ### Document Skills
-- **docx** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\docx\SKILL.md`
+- **docx** → `anthropics-skills/document-skills/docx/SKILL.md`
   - Creating/editing .docx with change tracking
-- **pdf** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\pdf\SKILL.md`
+- **pdf** → `anthropics-skills/document-skills/pdf/SKILL.md`
   - PDF manipulations: extraction, creation, merging, forms
-- **pptx** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\pptx\SKILL.md`
+- **pptx** → `anthropics-skills/document-skills/pptx/SKILL.md`
   - Creating/editing presentations with templates and charts
-- **xlsx** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\xlsx\SKILL.md`
+- **xlsx** → `anthropics-skills/document-skills/xlsx/SKILL.md`
   - Working with spreadsheets: formulas, data analysis, visualization
 
 ## Usage

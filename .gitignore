@@ -40,3 +40,6 @@ skill-usage.log
 temp/
 tmp/
 *.temp
+
+# 1C BSL Skill file (contains sensitive configuration data)
+custom-skills/1C_BSL_SKILL.md
