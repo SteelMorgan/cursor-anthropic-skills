@@ -28,101 +28,6 @@ This skill provides mandatory procedures for generating 1C:Enterprise (BSL) code
 
 ---
 
-## ⚠️ CRITICAL REALITY: Scale and Complexity of 1C Systems
-
-### THIS IS NOT A SIMPLE PROGRAMMING LANGUAGE - THIS IS ENTERPRISE-CRITICAL INFRASTRUCTURE
-
-**🏢 SCALE OF 1C CONFIGURATIONS:**
-
-- **Thousands of files**: A typical 1C configuration contains 1,000-10,000+ files
-- **Millions of lines**: Production configurations have 1,000,000-5,000,000+ lines of code
-- **Complex interdependencies**: Every object may reference dozens of other objects
-- **Critical business logic**: Controls accounting, inventory, payroll, legal compliance
-
-**⚠️ WHAT SEEMS SIMPLE IS ACTUALLY EXTREMELY COMPLEX:**
-
-A task that appears trivial may involve:
-- Checking 50+ metadata objects
-- Validating 200+ cross-references
-- Understanding complex business logic chains
-- Ensuring compliance with accounting standards
-- Preventing data corruption in production databases
-
-**Example: "Add field to catalog" (seems simple):**
-```
-Reality check:
-├─ Is this field used in 15 documents?
-├─ Does it affect 8 register movements?
-├─ Will it break 23 reports?
-├─ Does it require migration of existing data?
-├─ Will it violate accounting regulations?
-└─ Are there 47 query texts that need updating?
-```
-
-**🚨 CONSEQUENCES OF ERRORS ARE CATASTROPHIC:**
-
-**If you make a mistake:**
-- ❌ User LOSES their work (hours/days of development)
-- ❌ Production database may become CORRUPTED
-- ❌ Company accounting reports may be INCORRECT
-- ❌ Legal compliance may be VIOLATED (fines, audits)
-- ❌ Business operations may STOP (revenue loss)
-- ❌ Hundreds/thousands of employees cannot work
-
-**💼 BUSINESS IMPACT:**
-
-- Large enterprises depend on 1C for daily operations
-- Multi-billion dollar companies trust 1C with critical data
-- Tax authorities require 1C reports for compliance
-- Payroll, inventory, sales - all controlled by 1C
-- **Your code directly impacts real businesses and real people**
-
-### 🛡️ MAXIMUM VIGILANCE REQUIRED - ALWAYS
-
-**EVERY task requires MAXIMUM attention:**
-
-1. **NEVER rush** - even "simple" tasks need thorough validation
-2. **ALWAYS use MCP tools** - if tool exists, MUST use it
-3. **VERIFY EVERYTHING** - assume nothing, validate everything
-4. **CHECK TWICE** - use multiple validation methods
-5. **ASK IF UNCERTAIN** - better to ask than to break production
-
-**This skill is not just context - this is THE MOST IMPORTANT THING when working with 1C (BSL).**
-
-**From this depends:**
-- ✅ Correctness of accounting reports for government audits
-- ✅ Accuracy of employee salaries and taxes
-- ✅ Integrity of inventory and warehouse management
-- ✅ Compliance with legal and regulatory requirements
-- ✅ Operational continuity of entire enterprises
-
-### 🎯 YOUR RESPONSIBILITY
-
-When you write 1C code, you are:
-- **Accountable** for business-critical functionality
-- **Responsible** for data integrity and compliance
-- **Trusted** with enterprise infrastructure
-- **Expected** to be absolutely meticulous
-
-**One wrong method name = Production failure**
-**One missed validation = Data corruption**
-**One assumption = Business stoppage**
-
-### 🔒 MANDATORY ATTITUDE
-
-Approach EVERY 1C task with:
-- 🧠 **Full concentration** - no shortcuts, no assumptions
-- 🔍 **Extreme vigilance** - verify everything multiple times
-- 🛠️ **Tool utilization** - use every available MCP tool
-- ⏸️ **Patience** - better slow and correct than fast and broken
-- 💬 **Communication** - ask user if ANY doubt exists
-
-**Remember: Simple-looking tasks in 1C are rarely simple. The complexity is hidden in thousands of interconnections across the configuration.**
-
-**Your thoroughness protects real businesses and real people.**
-
----
-
 ## 🚨 CRITICAL: Absolute Compliance Requirements
 
 **⚠️ THESE RULES ARE NON-NEGOTIABLE AND MUST BE FOLLOWED WITHOUT EXCEPTION ⚠️**
@@ -827,7 +732,7 @@ Step 2: Metadata Validation
    Result: Structure with attributes: Наименование, ИНН, КПП, etc.
 
 Step 3: API Validation
-✅ Call: getMembers("СправочникОбъект.Контрагенты")
+✅ Call: getMembers("СправочникОбъект")
    Result: Methods confirmed: Записать(), УстановитьСсылкуНового(), etc.
 
 Step 4: Write Code
@@ -1045,4 +950,3 @@ IF MCP tool returns error:
 ---
 
 *This skill ensures code quality and prevents hallucinations through systematic validation. Follow every step without exception.*
-
