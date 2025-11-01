@@ -732,7 +732,7 @@ Step 2: Metadata Validation
    Result: Structure with attributes: Наименование, ИНН, КПП, etc.
 
 Step 3: API Validation
-✅ Call: getMembers("СправочникОбъект")
+✅ Call: getMembers("СправочникОбъект.Контрагенты")
    Result: Methods confirmed: Записать(), УстановитьСсылкуНового(), etc.
 
 Step 4: Write Code

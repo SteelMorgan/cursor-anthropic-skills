@@ -3,7 +3,7 @@
 **THIS IS A DIRECTORY/MAP FILE**
 - This file contains ONLY paths to skill files
 - This file is NOT a source of knowledge itself
-- After consulting this file, you MUST read the actual SKILL files listed here
+- After consulting this file, you MUST read and apply the actual SKILL files listed here
 
 ---
 
@@ -71,6 +71,17 @@ Apply rules from that file
 
 ---
 
+### Diagrams & Mermaid
+**When you detect:**
+- Keywords: `mermaid`, `diagram`, `flowchart`, `sequence`, `class diagram`, `state`, `er`, `gantt`, `journey`
+- Russian: `диаграмма`, `диаграммы`, `схема`, `схемы`, `граф`, `ER`, `UML`
+- Semantic: "draw a diagram", "architecture diagram", "process flow", "visualize structure"
+
+**Then read this file:**
+→ `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\MERMAID_SKILL.md`
+
+---
+
 ### 1C/BSL Development
 **When you detect:**
 - Keywords: `1с`, `bsl`, `1c:enterprise`, `справочник`, `документ`, `регистр`, `запрос`, `процедура`, `функция`
@@ -119,38 +130,24 @@ Apply rules from that file
 
 ## 📚 COMPLETE SKILLS CATALOG
 
-### Custom Skills (Project-Specific)
+### Anthropic Skills (Official)
 
-| Skill | File Path | Description |
-|-------|-----------|-------------|
-| PowerShell Scripts | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\POWERSHELL_RULES.md` | PowerShell command generation in Windows |
-| Docker Operations | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\DOCKER_SKILLS.md` | Docker container and service management |
-| 1C/BSL Development | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\1C_BSL_SKILL.md` | 1C:Enterprise (BSL) code generation with validation |
-
----
-
-### Creative & Design Skills
-
+#### Creative & Design
 | Skill | File Path | Description |
 |-------|-----------|-------------|
 | Algorithmic Art | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\algorithmic-art\SKILL.md` | Creating algorithmic art with p5.js |
 | Canvas Design | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\canvas-design\SKILL.md` | Creating visual art in .png/.pdf formats |
 | Slack GIF Creator | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\slack-gif-creator\SKILL.md` | Creating animated GIFs for Slack |
+| Theme Factory | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\theme-factory\SKILL.md` | Styling artifacts with ready-made and custom themes |
 
----
-
-### Development & Technical Skills
-
+#### Development & Technical
 | Skill | File Path | Description |
 |-------|-----------|-------------|
 | Artifacts Builder | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\artifacts-builder\SKILL.md` | Complex HTML artifacts with React, Tailwind, shadcn/ui |
 | MCP Builder | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\mcp-builder\SKILL.md` | Creating MCP servers for external API integration |
 | Web App Testing | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\webapp-testing\SKILL.md` | Browser automation using Playwright for testing/scraping |
 
----
-
-### Document Skills
-
+#### Document Skills
 | Skill | File Path | Description |
 |-------|-----------|-------------|
 | DOCX | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\docx\SKILL.md` | Creating/editing .docx with change tracking |
@@ -158,24 +155,61 @@ Apply rules from that file
 | PPTX | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\pptx\SKILL.md` | Creating/editing presentations with templates and charts |
 | XLSX | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\xlsx\SKILL.md` | Working with spreadsheets: formulas, data analysis |
 
----
-
-### Enterprise & Communication Skills
-
+#### Enterprise & Communication
 | Skill | File Path | Description |
 |-------|-----------|-------------|
 | Brand Guidelines | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\brand-guidelines\SKILL.md` | Applying Anthropic brand colors and typography |
 | Internal Communications | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\internal-comms\SKILL.md` | Writing internal communications (reports, updates, FAQ) |
-| Theme Factory | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\theme-factory\SKILL.md` | Styling artifacts with ready-made and custom themes |
 
----
-
-### Meta Skills
-
+#### Meta
 | Skill | File Path | Description |
 |-------|-----------|-------------|
 | Skill Creator | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\skill-creator\SKILL.md` | Creating effective skills for extending agent capabilities |
 | Template Skill | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\template-skill\SKILL.md` | Basic template for creating new skills |
+
+---
+
+### Claude Code Skills (Extended)
+
+> Каталог `claude-code-templates/` содержит как дубликаты официальных Anthropics SKILL.md, так и дополнительные, более детализированные навыки.
+
+#### Unique Extensions
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| Git Commit Helper | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\development\git-commit-helper\SKILL.md` | Claude Code workflow for generating commit messages from staged diffs |
+| Email Composer | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\enterprise-communication\email-composer\SKILL.md` | Templates for structured professional emails |
+| Excel Analysis | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\enterprise-communication\excel-analysis\SKILL.md` | Claude Code quick reference for pandas-based Excel review |
+| PDF Processing | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\pdf-processing\SKILL.md` | Lightweight PDF extraction and merging recipes |
+| PDF Processing Pro | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\pdf-processing-pro\SKILL.md` | Expanded workflow with CLI scripts, validation, OCR |
+
+#### Mirrored Anthropic Skills
+| Skill | File Path | Notes |
+|-------|-----------|-------|
+| Algorithmic Art | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\creative-design\algorithmic-art\SKILL.md` | Content matches Anthropics version |
+| Artifacts Builder | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\development\artifacts-builder\SKILL.md` | Mirror of Anthropics skill |
+| Brand Guidelines | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\enterprise-communication\brand-guidelines\SKILL.md` | Mirror |
+| Canvas Design | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\creative-design\canvas-design\SKILL.md` | Mirror |
+| DOCX | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\docx\SKILL.md` | Mirror |
+| Internal Communications | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\enterprise-communication\internal-comms\SKILL.md` | Mirror |
+| MCP Builder | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\development\mcp-builder\SKILL.md` | Mirror |
+| PDF (Anthropic copy) | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\pdf-anthropic\SKILL.md` | Mirror |
+| PPTX | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\pptx\SKILL.md` | Mirror |
+| Skill Creator | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\development\skill-creator\SKILL.md` | Mirror |
+| Slack GIF Creator | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\creative-design\slack-gif-creator\SKILL.md` | Mirror |
+| Theme Factory | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\creative-design\theme-factory\SKILL.md` | Mirror |
+| Web App Testing | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\development\webapp-testing\SKILL.md` | Mirror |
+| XLSX | `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\xlsx\SKILL.md` | Mirror |
+
+---
+
+### Custom Skills (Project-Specific)
+
+| Skill | File Path | Description |
+|-------|-----------|-------------|
+| PowerShell Scripts | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\POWERSHELL_RULES.md` | PowerShell command generation in Windows |
+| Docker Operations | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\DOCKER_SKILLS.md` | Docker container and service management |
+| 1C/BSL Development | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\1C_BSL_SKILL.md` | 1C:Enterprise (BSL) code generation with validation |
+| Mermaid Diagrams | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\MERMAID_SKILL.md` | Human-readable diagrams with conservative templates and guidance |
 
 ---
 
@@ -187,13 +221,19 @@ Apply rules from that file
 - **Document (.docx)** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\docx\SKILL.md`
 - **Presentation (.pptx)** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\pptx\SKILL.md`
 - **Spreadsheet (.xlsx)** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\xlsx\SKILL.md`
+- **Spreadsheet quick analysis** → `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\enterprise-communication\excel-analysis\SKILL.md`
 - **PDF** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\document-skills\pdf\SKILL.md`
+- **PDF quick recipes** → `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\pdf-processing\SKILL.md`
+- **PDF production workflow** → `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\document-processing\pdf-processing-pro\SKILL.md`
 - **GIF animation** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\slack-gif-creator\SKILL.md`
+- **Professional email** → `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\enterprise-communication\email-composer\SKILL.md`
 - **1C code** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\1C_BSL_SKILL.md`
+- **Diagram/architecture/flows** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\MERMAID_SKILL.md`
 
 ### "I need to manage..."
 - **Docker containers** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\DOCKER_SKILLS.md`
 - **MCP servers** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\mcp-builder\SKILL.md`
+- **Git commit message** → `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\development\git-commit-helper\SKILL.md`
 
 ### "I need to test..."
 - **Web application** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\webapp-testing\SKILL.md`

@@ -24,17 +24,18 @@ This framework enforces mandatory skill usage through:
 D:\My Projects\FrameWork Global\LLM Skills\
 ├── Skills index.md                    # Main skills registry and rules
 ├── SKILLS RULE.md                   # Global enforcement rule
-├── .gitignore                        # Excludes anthropics-skills from version control
+├── .gitignore                        # Excludes third-party skill repositories
 ├── custom-skills\                    # Project-specific custom skills
 │   ├── POWERSHELL_RULES.md          # PowerShell-specific rules
 │   └── DOCKER_SKILLS.md             # Docker operations and management
-└── anthropics-skills\               # Clone of https://github.com/anthropics/skills
-    ├── artifacts-builder\           # Complex HTML artifacts with React/Tailwind
-    ├── playwright-docker-automation\ # Browser automation in Docker
-    ├── document-skills\             # Document creation (docx, pdf, xlsx, pptx)
-    ├── skill-creator\               # Guide for creating new skills
-    ├── template-skill\              # Basic skill template
-    └── ...                          # Other official Anthropic skills
+├── anthropics-skills\               # Clone of https://github.com/anthropics/skills
+│   ├── artifacts-builder\           # Complex HTML artifacts with React/Tailwind
+│   ├── playwright-docker-automation\ # Browser automation in Docker
+│   ├── document-skills\             # Document creation (docx, pdf, xlsx, pptx)
+│   ├── skill-creator\               # Guide for creating new skills
+│   ├── template-skill\              # Basic skill template
+│   └── ...                          # Other official Anthropic skills
+└── claude-code-templates\           # Clone of https://github.com/davila7/claude-code-templates (Claude Code skills)
 ```
 
 ### 🔗 Anthropics Skills Repository
@@ -45,6 +46,18 @@ The `anthropics-skills/` directory should contain a clone of the official [Anthr
 - **Development Skills**: Web development, testing, automation
 - **Creative Skills**: Art generation, design tools
 - **Meta Skills**: Skill creation and templates
+
+### 🔗 Claude Code Templates Repository
+
+The `claude-code-templates/` directory hosts a clone of [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates). `Skills index.md` now включает уникальные и расширенные Claude-навыки, дополняющие антропиковские:
+
+- **Git Commit Helper** — генерация commit-сообщений на основе `git diff`
+- **Email Composer** — шаблоны профессиональных писем
+- **Excel Analysis** — быстрый pandas-анализ Excel-таблиц
+- **PDF Processing** — лёгкие рецепты для извлечения и объединения PDF
+- **PDF Processing Pro** — продвинутый пайплайн с CLI-скриптами, OCR и валидацией
+
+Дубликаты официальных Anthropics-скиллов (например, `docx`, `artifacts-builder`) также присутствуют в репозитории Claude Code, поэтому каталог исключён из Git через `.gitignore`.
 
 **Setup Options:**
 1. **Clone Official Repository**: `git clone https://github.com/anthropics/skills.git anthropics-skills`
@@ -70,11 +83,25 @@ git clone https://github.com/anthropics/skills.git anthropics-skills
 
 **Important**: The `anthropics-skills/` directory is excluded from version control via `.gitignore` to avoid committing third-party code.
 
-### Step 2: Install Global Rule
+### Step 2: Setup Claude Code Skills
+
+Clone the Claude Code templates repository so that `Skills index.md` can ссылаться на расширенные навыки:
+
+```powershell
+# Navigate to the skills directory
+cd "D:\My Projects\FrameWork Global\LLM Skills"
+
+# Clone Claude Code skills collection
+git clone https://github.com/davila7/claude-code-templates.git claude-code-templates
+```
+
+**Note**: Каталог `claude-code-templates/` также добавлен в `.gitignore`, чтобы не коммитить сторонние шаблоны.
+
+### Step 3: Install Global Rule
 
 Copy the critical skills rule to Cursor's global configuration / project configuration / role-custom-agent instructions
 
-### Step 3: Verify and Update Skills Index
+### Step 4: Verify and Update Skills Index
 
 ⚠️ **CRITICAL STEP**: Update absolute paths in `Skills index.md`
 
@@ -120,7 +147,7 @@ $newPath = "YOUR_ACTUAL_PATH\\"
 - ⚡ Mandatory verification steps
 - 📚 References to anthropics-skills (with UPDATED absolute paths)
 
-### Step 4: Test the Setup
+### Step 5: Test the Setup
 
 ⚠️ **IMPORTANT**: Use a complex test request, NOT a simple one. Simple requests may cause the agent to skip skill usage.
 

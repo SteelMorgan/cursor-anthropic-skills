@@ -3,10 +3,15 @@
 # It should not be committed to version control as it's a third-party repository
 
 anthropics-skills/
+claude-code-templates/
 
 # Alternative: If you want to keep the structure but ignore content
 # anthropics-skills/*
 # !anthropics-skills/.gitkeep
+
+# Analytics / comparison outputs
+skills_metadata.json
+skill_overlap_analysis.md
 
 # Local development files
 *.log
