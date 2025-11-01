@@ -49,15 +49,15 @@ The `anthropics-skills/` directory should contain a clone of the official [Anthr
 
 ### 🔗 Claude Code Templates Repository
 
-The `claude-code-templates/` directory hosts a clone of [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates). `Skills index.md` now включает уникальные и расширенные Claude-навыки, дополняющие антропиковские:
+The `claude-code-templates/` directory hosts a clone of [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates). `Skills index.md` now lists the unique and extended Claude skills that complement the Anthropic catalog:
 
-- **Git Commit Helper** — генерация commit-сообщений на основе `git diff`
-- **Email Composer** — шаблоны профессиональных писем
-- **Excel Analysis** — быстрый pandas-анализ Excel-таблиц
-- **PDF Processing** — лёгкие рецепты для извлечения и объединения PDF
-- **PDF Processing Pro** — продвинутый пайплайн с CLI-скриптами, OCR и валидацией
+- **Git Commit Helper**: Generate commit messages based on `git diff`
+- **Email Composer**: Draft professional email templates
+- **Excel Analysis**: Provide quick pandas-based spreadsheet reviews
+- **PDF Processing**: Offer lightweight recipes for extracting and merging PDFs
+- **PDF Processing Pro**: Deliver an advanced pipeline with CLI scripts, OCR, and validation
 
-Дубликаты официальных Anthropics-скиллов (например, `docx`, `artifacts-builder`) также присутствуют в репозитории Claude Code, поэтому каталог исключён из Git через `.gitignore`.
+Mirrored Anthropics skills (for example, `docx`, `artifacts-builder`) also live in the Claude Code repository, which is why the directory is excluded from Git via `.gitignore`.
 
 **Setup Options:**
 1. **Clone Official Repository**: `git clone https://github.com/anthropics/skills.git anthropics-skills`
@@ -85,7 +85,7 @@ git clone https://github.com/anthropics/skills.git anthropics-skills
 
 ### Step 2: Setup Claude Code Skills
 
-Clone the Claude Code templates repository so that `Skills index.md` can ссылаться на расширенные навыки:
+Clone the Claude Code templates repository so that `Skills index.md` can reference the extended skills:
 
 ```powershell
 # Navigate to the skills directory
@@ -95,7 +95,7 @@ cd "D:\My Projects\FrameWork Global\LLM Skills"
 git clone https://github.com/davila7/claude-code-templates.git claude-code-templates
 ```
 
-**Note**: Каталог `claude-code-templates/` также добавлен в `.gitignore`, чтобы не коммитить сторонние шаблоны.
+**Note**: The `claude-code-templates/` directory is also added to `.gitignore` to avoid committing third-party templates.
 
 ### Step 3: Install Global Rule
 
