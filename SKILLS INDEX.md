@@ -92,6 +92,27 @@ Apply rules from that file
 
 ---
 
+### YAxUnit Testing
+**When you detect:**
+- Keywords: `yaxunit`, `тест`, `тестирование`, `unit test`, `юнит тест`, `unit testing`, `ЮТест`, `ЮТТесты`
+- Russian: `написать тест`, `создать тест`, `модульное тестирование`, `тест для 1С`, `ИсполняемыеСценарии`
+- Semantic: "write unit test", "create test", "test 1C code", "unit testing", "testing framework"
+
+**Then read this file:**
+→ `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\YAXUNIT_TESTING_SKILL.md`
+
+---
+
+### Skill Creation & Enforcement
+**When you detect:**
+- Keywords: `skill creator`, `create skill`, `bulletproof skill`, `enforcement`, `skill builder`, `создание навыка`, `навык с enforcement`
+- Semantic: "create a new skill", "build bulletproof skill", "add enforcement to skill", "skill with compliance", "make skill reliable"
+
+**Then read this file:**
+→ `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\USER_SKILL_RULE_V2.md`
+
+---
+
 ### Document Processing
 
 #### Word Documents (DOCX)
@@ -164,7 +185,6 @@ Apply rules from that file
 #### Meta
 | Skill | File Path | Description |
 |-------|-----------|-------------|
-| Skill Creator | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\skill-creator\SKILL.md` | Creating effective skills for extending agent capabilities |
 | Template Skill | `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\template-skill\SKILL.md` | Basic template for creating new skills |
 
 ---
@@ -206,9 +226,11 @@ Apply rules from that file
 
 | Skill | File Path | Description |
 |-------|-----------|-------------|
+| Enhanced Skill Creator | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\USER_SKILL_RULE_V2.md` | Creating bulletproof skills with built-in enforcement (6 strategies) |
 | PowerShell Scripts | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\POWERSHELL_RULES.md` | PowerShell command generation in Windows |
 | Docker Operations | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\DOCKER_SKILLS.md` | Docker container and service management |
 | 1C/BSL Development | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\1C_BSL_SKILL.md` | 1C:Enterprise (BSL) code generation with validation |
+| YAxUnit Testing | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\YAXUNIT_TESTING_SKILL.md` | Writing unit tests for 1C using YAxUnit framework |
 | Mermaid Diagrams | `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\MERMAID_SKILL.md` | Human-readable diagrams with conservative templates and guidance |
 
 ---
@@ -228,7 +250,9 @@ Apply rules from that file
 - **GIF animation** → `D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills\slack-gif-creator\SKILL.md`
 - **Professional email** → `D:\My Projects\FrameWork Global\LLM Skills\claude-code-templates\cli-tool\components\skills\enterprise-communication\email-composer\SKILL.md`
 - **1C code** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\1C_BSL_SKILL.md`
+- **Unit test for 1C** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\YAXUNIT_TESTING_SKILL.md`
 - **Diagram/architecture/flows** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\MERMAID_SKILL.md`
+- **Bulletproof skill with enforcement** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\USER_SKILL_RULE_V2.md`
 
 ### "I need to manage..."
 - **Docker containers** → `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\DOCKER_SKILLS.md`
