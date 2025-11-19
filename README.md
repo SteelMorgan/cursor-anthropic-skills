@@ -99,7 +99,22 @@ git clone https://github.com/davila7/claude-code-templates.git claude-code-templ
 
 ### Step 3: Install Global Rule
 
-Copy the critical skills rule to Cursor's global configuration / project configuration / role-custom-agent instructions
+**⚠️ CRITICAL**: Текст файла `SKILLS RULE.md` должен быть добавлен как **глобальное USER RULE** в Cursor.
+
+**Как это сделать:**
+1. Откройте файл `SKILLS RULE.md`
+2. Скопируйте весь его содержимое
+3. В Cursor перейдите в настройки → Rules → Global Rules (или Project Rules)
+4. Добавьте скопированный текст как новое правило
+
+**Почему это важно:**
+- Именно на основании `SKILLS RULE.md` агент начнет использовать Skills Index
+- Агент будет автоматически подгружать навыки из индекса при обнаружении соответствующих ключевых слов
+- Без этого правила агент не будет использовать систему навыков
+
+**Альтернативные варианты:**
+- Можно добавить в Project Rules вместо Global Rules (если нужно только для конкретного проекта)
+- Можно добавить в role-custom-agent instructions (если используете кастомные роли агентов)
 
 ### Step 4: Verify and Update Skills Index
 
