@@ -22,12 +22,27 @@ This framework enforces mandatory skill usage through:
 
 ```
 D:\My Projects\FrameWork Global\LLM Skills\
-├── Skills index.md                    # Main skills registry and rules
-├── SKILLS RULE.md                   # Global enforcement rule
+├── SKILLS INDEX.md                   # Main skills registry (update paths after cloning!)
+├── SKILLS RULE.md                    # Global enforcement rule (add as USER RULE in Cursor!)
+├── README.md                         # Project documentation
+├── QUICK_SETUP.md                    # Quick setup guide
+├── THIRD_PARTY_NOTICES.md            # Third-party licenses and attributions
 ├── .gitignore                        # Excludes third-party skill repositories
 ├── custom-skills\                    # Project-specific custom skills
 │   ├── POWERSHELL_RULES.md          # PowerShell-specific rules
-│   └── DOCKER_SKILLS.md             # Docker operations and management
+│   ├── DOCKER_SKILLS.md             # Docker operations and management
+│   ├── 1C_BSL_SKILL.md              # 1C/BSL development
+│   ├── 1c_techlog.md                 # 1C technical logging
+│   ├── YAXUNIT_TESTING_SKILL.md     # YAxUnit testing framework
+│   ├── DEVELOPMENT_METHODOLOGY_RULE.md # SDD/TDD/DDD methodology
+│   ├── GO_SKILL.md                  # Go language skills
+│   ├── MERMAID_SKILL.md             # Mermaid diagram skills
+│   ├── USER_SKILL_RULE_V2.md        # Skill creation guidelines
+│   └── claude-agent-skills\         # Claude agent skills collection
+│       ├── ai-specialists\          # AI specialist skills
+│       ├── development-team\        # Development team skills
+│       ├── database\                # Database skills
+│       └── ...                      # Many more skill categories
 ├── anthropics-skills\               # Clone of https://github.com/anthropics/skills
 │   ├── artifacts-builder\           # Complex HTML artifacts with React/Tailwind
 │   ├── playwright-docker-automation\ # Browser automation in Docker
@@ -220,6 +235,8 @@ When a relevant skill is detected, the agent MUST:
 ## 📋 Available Skills
 
 ### Custom Skills (Project-Specific)
+
+#### Core Development Skills
 - **PowerShell & Windows**: `custom-skills/POWERSHELL_RULES.md`
   - **Keywords**: `powershell`, `ps1`, `windows`, `cmd`, `bat`, `gradlew`
   - **Rules**: Command separation, path quoting, HTTP requests, error handling
@@ -228,7 +245,48 @@ When a relevant skill is detected, the agent MUST:
   - **Keywords**: `docker`, `container`, `docker-compose`, `image`, `volume`
   - **Rules**: Container management, compose operations, health checks, PowerShell integration
 
-Check and actualize PS & Docker skills for yourself (this is only my example)
+- **Go Language**: `custom-skills/GO_SKILL.md`
+  - **Keywords**: `go`, `golang`, `go language`
+  - **Rules**: Go syntax, best practices, standard library usage
+
+- **Mermaid Diagrams**: `custom-skills/MERMAID_SKILL.md`
+  - **Keywords**: `mermaid`, `diagram`, `flowchart`, `sequence diagram`
+  - **Rules**: Mermaid syntax for creating diagrams
+
+#### 1C/BSL Development Skills
+- **1C/BSL Development**: `custom-skills/1C_BSL_SKILL.md`
+  - **Keywords**: `1с`, `bsl`, `1c:enterprise`, `справочник`, `документ`, `регистр`
+  - **Rules**: BSL syntax, 1C metadata, anti-hallucination validation
+
+- **1C Technical Logging**: `custom-skills/1c_techlog.md`
+  - **Keywords**: `технический журнал`, `techlog`, `1c log`, `debugging 1c`
+  - **Rules**: Technical log analysis, debugging 1C applications
+
+- **YAxUnit Testing**: `custom-skills/YAXUNIT_TESTING_SKILL.md`
+  - **Keywords**: `yaxunit`, `тест`, `тестирование`, `unit test`, `ЮТест`
+  - **Rules**: YAxUnit framework usage, test structure, assertions
+
+#### Methodology Skills
+- **Development Methodology (SDD/TDD/DDD)**: `custom-skills/DEVELOPMENT_METHODOLOGY_RULE.md`
+  - **Keywords**: `sdd`, `tdd`, `ddd`, `методика разработки`, `specification`, `test driven`
+  - **Rules**: Spec Driven Development, Test Driven Development, Domain Driven Development
+  - **Note**: Методика разработки и проектирования для проектов 1С / 1C / BSL
+
+#### Skill Creation
+- **Skill Creation Guidelines**: `custom-skills/USER_SKILL_RULE_V2.md`
+  - **Keywords**: `skill creator`, `create skill`, `bulletproof skill`, `enforcement`
+  - **Rules**: Skill creation patterns, enforcement strategies, compliance protocols
+
+#### Claude Agent Skills Collection
+- **Claude Agent Skills**: `custom-skills/claude-agent-skills/`
+  - Extensive collection of specialized skills organized by domain:
+    - AI Specialists (prompt engineering, LLM maintenance, model evaluation)
+    - Development Team (backend, frontend, fullstack, mobile, iOS)
+    - Database (administration, architecture, optimization, Supabase, Neon)
+    - Security (auditing, penetration testing, compliance)
+    - And many more categories...
+
+**Note**: Check and actualize skills for yourself - this is a living framework that evolves with your needs.
 
 ### Official Anthropic Skills (Production-Ready)
 
