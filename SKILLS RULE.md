@@ -16,7 +16,7 @@
 
 ### STEP 2: CONSULT SKILLS INDEX
 **MANDATORY ACTIONS:**
-1. ✅ Read `SKILLS INDEX.md` file
+1. ✅ Read `D:\My Projects\FrameWork Global\LLM Skills\SKILLS INDEX.md` file
 2. ✅ Match your analysis from Step 1 with skill categories in index
 3. ✅ Extract **EXACT FILE PATH(S)** of matching skill(s)
 4. ✅ Prepare list of skill files to read
@@ -62,40 +62,6 @@
 - Правило #3: Использование Invoke-WebRequest вместо curl
 Вот скрипт с правильным синтаксисом PowerShell...
 ```
-
----
-
-## 🔍 KEYWORD & SEMANTIC DETECTION RULES
-
-### PowerShell/Windows Scripts:
-**Keywords**: `powershell`, `ps1`, `script`, `windows`, `cmd`, `bat`, `gradlew`
-**Semantic**: "create script", "run command", "execute in Windows"
-→ **ACTION**: Read `custom-skills/POWERSHELL_RULES.md`
-
-### Docker Operations:
-**Keywords**: `docker`, `container`, `docker-compose`, `image`, `volume`
-**Semantic**: "manage containers", "container status", "docker health"
-→ **ACTION**: Read `custom-skills/DOCKER_SKILLS.md`
-
-### Web Development:
-**Keywords**: `html`, `react`, `tailwind`, `artifact`, `webapp`, `ui`
-**Semantic**: "build website", "create web app", "make UI", "frontend"
-→ **ACTION**: Read `anthropics-skills/artifacts-builder/SKILL.md`
-
-### Browser Automation:
-**Keywords**: `playwright`, `automation`, `browser`, `scraping`
-**Semantic**: "automate browser", "scrape website", "test web page"
-→ **ACTION**: Read `anthropics-skills/webapp-testing/SKILL.md`
-
-### Document Processing:
-**Keywords**: `docx`, `pdf`, `xlsx`, `pptx`, `word`, `excel`, `powerpoint`
-**Semantic**: "create document", "generate report", "make presentation"
-→ **ACTION**: Read corresponding document skill file from `anthropics-skills/document-skills/`
-
-### 1C/BSL Development:
-**Keywords**: `1с`, `bsl`, `1c:enterprise`, `справочник`, `документ`, `регистр`, `запрос`
-**Semantic**: "generate 1C code", "create BSL procedure", "1C metadata"
-→ **ACTION**: Read `custom-skills/1C_BSL_SKILL.md`
 
 ---
 

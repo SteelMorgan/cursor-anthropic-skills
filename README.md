@@ -1,462 +1,288 @@
-# Cursor Skills Framework
+# Коллекция навыков для IDE Cursor
 
-A comprehensive framework for ensuring AI agents in Cursor always use relevant skills and knowledge bases when responding to user requests.
+**[🇺🇸 English](README_EN.md) | [🇷🇺 Русский](README.md)**
 
-## 🚨 Problem Solved
+Коллекция навыков для IDE Cursor, основанная на открытых источниках, в частности Claude Code Templates. Фреймворк обеспечивает автоматическое применение специализированных знаний AI-агентом при работе с различными технологиями и доменами.
 
-By default, Cursor AI agents may not consistently apply specialized knowledge from skill files, leading to:
-- Generic responses without domain-specific expertise
-- Incorrect syntax or commands (e.g., bash syntax in PowerShell)
-- Missing best practices and established patterns
-- Inconsistent quality across different types of requests
+## Проблема и решение
 
-### Проблема (RU)
+### Проблема
 
-**Что такое навык?**
+Cursor не поддерживает работу с несколькими агентами одновременно. Это ограничивает возможность использования специализированных знаний, заложенных в различных агентах.
 
-Навык — это промпт, который подсказывает агенту, как правильно работать с той или иной технологией, или набор "ключевых знаний" в какой-то области. Навыки содержат специализированные знания, лучшие практики, правильный синтаксис и паттерны для конкретных технологий и доменов.
+### Решение
 
-**Как это работает?**
+Разработан механизм промптов (user rules), который позволяет извлекать "знания" из агентов и конвертировать их в навыки. При получении запроса от пользователя агент:
 
-Создан механизм, в рамках которого агент выполняет анализ запроса пользователя, а затем обращается к Skills Index и ищет там подходящие навыки по ключевым словам или семантическому смыслу. Если находит подходящий навык — читает его содержимое и применяет знания из него при формировании ответа.
+1. Анализирует запрос на наличие ключевых слов и семантического смысла
+2. Обращается к индексу навыков (`SKILLS INDEX.md`)
+3. Выбирает подходящие навыки по ключевым словам и семантическому поиску
+4. Загружает и применяет знания из найденных навыков
+5. Приступает к выполнению запроса с учетом best practices и специализированных знаний
 
-**Результат:**
+Это позволяет агенту учитывать лучшие практики и обладать информацией о конкретных технологиях, даже если изначально эти знания не были в его контексте.
 
-Агент лучше знает профильные области и применяет специализированные знания:
-- Навыки по основным языкам программирования (Go, Python, JavaScript, TypeScript, Rust, C++, C#, PHP и др.)
-- Навыки по проведению тестов (YAxUnit для 1C, unit testing, integration testing)
-- Навыки по backend-архитектуре и проектированию систем
-- Навыки по базам данных (SQL, NoSQL, Supabase, Neon, оптимизация)
-- Навыки по DevOps и инфраструктуре (Docker, Terraform, мониторинг)
-- Навыки по безопасности (аудит, penetration testing, compliance)
-- Навыки по разработке для 1C/BSL (метаданные, запросы, документы, регистры)
-- Методологии разработки (SDD, TDD, DDD)
-- И многое другое
+## Быстрый старт
 
-Без этого фреймворка агент может давать общие ответы без учета специфики технологии, использовать неправильный синтаксис или пропускать важные best practices.
+### А. Клонировать репозиторий
 
-## 🎯 Solution
+```powershell
+git clone <repository-url>
+cd "ВАШ_ПУТЬ" (замените путь на свой при желании)
+```
 
-This framework enforces mandatory skill usage through:
-- **Automatic keyword detection** - Identifies relevant skills by keywords
-- **Semantic analysis** - Understands request intent and context
-- **Mandatory skill application** - Forces agents to use appropriate knowledge
-- **Verification system** - Ensures skills are properly applied
+### Б. Обновить путь в SKILLS RULE.md
 
-## 📁 Framework Structure
+В файле `./SKILLS RULE.md` в разделе **STEP 2: CONSULT SKILLS INDEX** укажите свой путь к проекту:
+
+```markdown
+### STEP 2: CONSULT SKILLS INDEX
+**MANDATORY ACTIONS:**
+1. ✅ Read `ВАШ_ПУТЬ\SKILLS INDEX.md` file
+```
+
+Замените `D:\My Projects\FrameWork Global\LLM Skills\` на ваш путь к проекту.
+
+### В. Обновить пути в SKILLS INDEX.md
+
+Выполните аналогичную замену путей в файле `./SKILLS INDEX.md`. 
+
+**Важно:** Можно использовать относительные пути, но практика показала, что так агент начинает работать нестабильно и находит файлы через раз. Рекомендуется один раз через групповую замену (Ctrl + H) поменять путь к проекту на свой во всех вхождениях.
+
+### Г. Добавить правило в Cursor
+
+Текст из файла `SKILLS RULE.md` необходимо добавить в IDE Cursor как глобальное правило:
+
+1. Откройте файл `SKILLS RULE.md`
+2. Скопируйте всё его содержимое
+3. В Cursor перейдите в настройки → Rules → User Rules
+4. Добавьте скопированный текст как новое правило
+
+**Примечание:** Можно просто положить файл в директорию пользователя, но у меня он оттуда не учитывается. Добавление вручную через интерфейс Cursor гарантирует работу.
+
+### Д. Использование
+
+Пользоваться агентом можно как обычно. Он сам будет подгружать нужные навыки по вашему контексту. Если агент всё же не загрузил нужный навык — просто напишите ему, что нужно загрузить навык/скилл о том-то. Он найдет его, если такой есть в индексе.
+
+## Основные возможности
+
+- **Поиск навыков на основании семантического анализа запроса пользователя** — система понимает намерение пользователя и подбирает релевантные навыки
+- **Поиск навыков по ключевым словам запроса пользователя** — быстрое определение нужного навыка по техническим терминам
+- **Использование механик "защиты, усиления и контроля" в промптах** — применение 6 стратегий контроля для повышения степени соблюдаемости агентом правил из навыков
+
+## Структура проекта
 
 ```
 D:\My Projects\FrameWork Global\LLM Skills\
-├── SKILLS INDEX.md                   # Main skills registry (update paths after cloning!)
-├── SKILLS RULE.md                    # Global enforcement rule (add as USER RULE in Cursor!)
-├── README.md                         # Project documentation
-├── QUICK_SETUP.md                    # Quick setup guide
-├── THIRD_PARTY_NOTICES.md            # Third-party licenses and attributions
-├── .gitignore                        # Excludes third-party skill repositories
-├── custom-skills\                    # Project-specific custom skills
-│   ├── POWERSHELL_RULES.md          # PowerShell-specific rules
-│   ├── DOCKER_SKILLS.md             # Docker operations and management
-│   ├── 1C_BSL_SKILL.md              # 1C/BSL development
-│   ├── 1c_techlog.md                 # 1C technical logging
-│   ├── YAXUNIT_TESTING_SKILL.md     # YAxUnit testing framework
-│   ├── DEVELOPMENT_METHODOLOGY_RULE.md # SDD/TDD/DDD methodology
-│   ├── GO_SKILL.md                  # Go language skills
-│   ├── MERMAID_SKILL.md             # Mermaid diagram skills
-│   ├── USER_SKILL_RULE_V2.md        # Skill creation guidelines
-│   └── claude-agent-skills\         # Claude agent skills collection
-│       ├── ai-specialists\          # AI specialist skills
-│       ├── development-team\        # Development team skills
-│       ├── database\                # Database skills
-│       └── ...                      # Many more skill categories
-├── anthropics-skills\               # Clone of https://github.com/anthropics/skills
-│   ├── artifacts-builder\           # Complex HTML artifacts with React/Tailwind
-│   ├── playwright-docker-automation\ # Browser automation in Docker
-│   ├── document-skills\             # Document creation (docx, pdf, xlsx, pptx)
-│   ├── skill-creator\               # Guide for creating new skills
-│   ├── template-skill\              # Basic skill template
-│   └── ...                          # Other official Anthropic skills
-└── claude-code-templates\           # Clone of https://github.com/davila7/claude-code-templates (Claude Code skills)
+├── SKILLS INDEX.md                   # Главный индекс навыков (карта путей к навыкам)
+├── SKILLS RULE.md                    # Глобальное правило применения (добавить в Cursor!)
+├── README.md                         # Документация проекта
+├── CHANGELOG.md                      # История изменений
+├── CONTRIBUTING.md                   # Руководство для контрибьюторов
+├── THIRD_PARTY_NOTICES.md            # Уведомления о стороннем ПО
+├── .gitignore                        # Исключает сторонние репозитории навыков
+│
+├── custom-skills\                    # Проектные кастомные навыки
+│   ├── POWERSHELL_RULES.md          # Правила PowerShell
+│   ├── DOCKER_SKILLS.md             # Операции Docker
+│   ├── 1C_BSL_SKILL.md              # Разработка на 1C/BSL
+│   ├── 1c_techlog.md                 # Техническое логирование 1C
+│   ├── YAXUNIT_TESTING_SKILL.md     # Тестирование YAxUnit
+│   ├── DEVELOPMENT_METHODOLOGY_RULE.md # Методика разработки SDD/TDD/DDD
+│   ├── GO_SKILL.md                  # Язык Go
+│   ├── MERMAID_SKILL.md             # Диаграммы Mermaid
+│   ├── USER_SKILL_RULE_V2.md        # Руководство по созданию навыков
+│   └── claude-agent-skills\         # Коллекция Claude Agent Skills (140+ навыков)
+│       ├── ai-specialists\           # AI специалисты (9 навыков)
+│       ├── development-team\        # Команда разработки (8 навыков)
+│       ├── development-tools\       # Инструменты разработки (12 навыков)
+│       ├── database\                 # Базы данных (8 навыков)
+│       ├── security\                 # Безопасность (6 навыков)
+│       ├── programming-languages\    # Языки программирования (11 навыков)
+│       └── ...                       # И многое другое
+│
+├── anthropics-skills\                # Клон https://github.com/anthropics/skills
+│   ├── artifacts-builder\           # Сложные HTML артефакты с React/Tailwind
+│   ├── playwright-docker-automation\ # Автоматизация браузера в Docker
+│   ├── document-skills\             # Создание документов (docx, pdf, xlsx, pptx)
+│   ├── skill-creator\                # Руководство по созданию навыков
+│   ├── template-skill\              # Базовый шаблон навыка
+│   └── ...                          # Другие официальные навыки Anthropic
+│
+└── claude-code-templates\            # Клон https://github.com/davila7/claude-code-templates
+    └── cli-tool\components\skills\   # Расширенные навыки Claude Code
 ```
 
-### 🔗 Anthropics Skills Repository
+## Доступные навыки
 
-The `anthropics-skills/` directory should contain a clone of the official [Anthropic Skills repository](https://github.com/anthropics/skills). This repository contains production-ready skills developed by Anthropic, including:
+### Кастомные навыки (некоторые в стадии отладки и тестирования)
 
-- **Document Skills**: Advanced document creation and manipulation
-- **Development Skills**: Web development, testing, automation
-- **Creative Skills**: Art generation, design tools
-- **Meta Skills**: Skill creation and templates
+- **PowerShell Scripts** — генерация команд PowerShell для Windows
+- **Docker Operations** — управление контейнерами и сервисами Docker
+- **1C/BSL Development** — разработка на 1C:Enterprise с валидацией BSL
+- **YAxUnit Testing** — написание unit-тестов для 1C с использованием YAxUnit
+- **Go Language** — разработка на языке Go
+- **Mermaid Diagrams** — создание диаграмм Mermaid
+- **Development Methodology** — методика разработки SDD/TDD/DDD для проектов 1С/BSL
+- **Enhanced Skill Creator** — создание надежных навыков с встроенным enforcement (6 стратегий)
+- **1C Technical Logging** — анализ технических журналов 1C
 
-### 🔗 Claude Code Templates Repository
+### Официальные навыки Anthropic (~14 навыков)
 
-The `claude-code-templates/` directory hosts a clone of [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates). `Skills index.md` now lists the unique and extended Claude skills that complement the Anthropic catalog:
+#### Creative & Design (4 навыка)
+- Algorithmic Art, Canvas Design, Slack GIF Creator, Theme Factory
 
-- **Git Commit Helper**: Generate commit messages based on `git diff`
-- **Email Composer**: Draft professional email templates
-- **Excel Analysis**: Provide quick pandas-based spreadsheet reviews
-- **PDF Processing**: Offer lightweight recipes for extracting and merging PDFs
-- **PDF Processing Pro**: Deliver an advanced pipeline with CLI scripts, OCR, and validation
+#### Development & Technical (3 навыка)
+- Artifacts Builder, MCP Builder, Web App Testing
 
-Mirrored Anthropics skills (for example, `docx`, `artifacts-builder`) also live in the Claude Code repository, which is why the directory is excluded from Git via `.gitignore`.
+#### Document Skills (4 навыка)
+- DOCX, PDF, PPTX, XLSX
 
-**Setup Options:**
-1. **Clone Official Repository**: `git clone https://github.com/anthropics/skills.git anthropics-skills`
-2. **Download Specific Skills**: Copy only the skills you need
-3. **Create Custom Skills**: Use the `skill-creator` and `template-skill` as guides
+#### Enterprise & Communication (2 навыка)
+- Brand Guidelines, Internal Communications
 
-## 🛠️ Setup Instructions
+#### Meta (1 навык)
+- Template Skill
 
-### Step 1: Setup Anthropics Skills
+### Claude Code Skills (~19 навыков)
 
-Clone the official Anthropic skills repository:
+#### Уникальные расширения (5 навыков)
+- Git Commit Helper, Email Composer, Excel Analysis, PDF Processing, PDF Processing Pro
 
-```powershell
-# Navigate to the skills directory
-cd "D:\My Projects\FrameWork Global\LLM Skills"
+#### Зеркальные навыки Anthropic (14 навыков)
+- Дубликаты официальных навыков Anthropic с дополнительными возможностями
 
-# Clone the official repository
-git clone https://github.com/anthropics/skills.git anthropics-skills
+### Claude Agent Skills (~140 навыков)
 
-# Or download specific skills you need
-# The repository contains production-ready skills from Anthropic
+#### AI Specialists (9 навыков)
+- Prompt Engineering, LLMs.txt Maintainer, LLM Maintenance, Model Evaluation, Search Specialist, Search Specialization, Task Decomposition, AI Ethics, Hackathon Strategy
+
+#### Development Team (8 навыков)
+- Backend Architecture, Frontend Development, Full-Stack Development, iOS Development, Mobile Development, DevOps Engineering, UI/UX Design, CLI UI Design
+
+#### Development Tools (12 навыков)
+- Code Review, MCP Integration, Command Development, Context Management, Debugging, Developer Experience, Error Detection, Performance Profiling, Test Automation, Code Cleanup, Flutter/Go Review
+
+#### Database (8 навыков)
+- Database Administration, Database Architecture, Database Optimization, Neon Auth, Neon Database Architecture, Neon Expert, Supabase Schema, NoSQL
+
+#### MCP Dev Team (7 навыков)
+- MCP Server Architecture, MCP Deployment, MCP Integration, MCP Protocol, MCP Registry, MCP Security Audit, MCP Testing
+
+#### Security (6 навыков)
+- Security Auditing, Security Auditing (Code), Penetration Testing, Incident Response, Compliance, API Security Audit
+
+#### Documentation (4 навыка)
+- API Documentation, Technical Writing, Changelog Generation, Docusaurus
+
+#### Expert Advisors (4 навыка)
+- Agent Development, Architecture Review, Dependency Management, Documentation Expertise
+
+#### API & GraphQL (3 навыка)
+- GraphQL Architecture, GraphQL Performance, GraphQL Security
+
+#### DevOps Infrastructure (8 навыков)
+- Cloud Architecture, Deployment Automation, DevOps Troubleshooting, Infrastructure Security, Monitoring, Network Engineering, Terraform, Vercel Deployment
+
+#### Data & AI (8 навыков)
+- Data Engineering, Data Science, ML Engineering, AI Engineering, NLP Engineering, MLOps, Computer Vision, Quantitative Analysis
+
+#### Blockchain & Web3 (3 навыка)
+- Smart Contract Development, Smart Contract Auditing, Web3 Integration
+
+#### Git & Version Control (1 навык)
+- Git Flow
+
+#### Realtime (1 навык)
+- Supabase Realtime
+
+#### Modernization (3 навыка)
+- Architecture Modernization, Legacy Modernization, Cloud Migration
+
+#### Game Development (4 навыка)
+- Unity Development, Unreal Development, Game Design, 3D Art
+
+#### FFmpeg Clip Team (8 навыков)
+- Video Editing, Audio Mixing, Social Media Clips, Audio Quality, Podcast Transcription, Podcast Metadata, Timestamp Precision, Podcast Content Analysis
+
+#### OCR Extraction Team (4 навыка)
+- Visual OCR, OCR Preprocessing, Document Structure Analysis, OCR Quality Assurance
+
+#### Podcast Creator Team (2 навыка)
+- SEO Podcast Optimization, Podcast Editing
+
+#### Obsidian Ops Team (3 навыка)
+- Metadata Management, Connection Management, Tag Taxonomy
+
+#### Programming Languages (11 навыков)
+- Python, TypeScript, JavaScript, C#, C++, Rust, Go, PHP, SQL, Shell Scripting, C
+
+#### Performance Testing (5 навыков)
+- Load Testing, Performance Engineering, React Performance, Web Vitals, Test Automation Setup
+
+#### Web Tools (5 навыков)
+- Next.js Architecture, SEO Analysis, Web Accessibility, URL Validation, URL Extraction
+
+#### Deep Research Team (12 навыков)
+- Research Coordination, Research Orchestration, Research Synthesis, Academic Research, Technical Research, Fact Checking, Data Analysis, Report Generation, Competitive Intelligence, Query Clarification, Research Brief Generation, Nia Oracle
+
+#### Business & Marketing (9 навыков)
+- Business Analysis, Product Strategy, Content Marketing, Customer Support, Legal Advisory, Marketing Attribution, Payment Integration, Risk Management, Sales Automation
+
+**Всего доступно более 180 навыков** для различных технологий и доменов.
+
+## Создание навыков
+
+Для создания новых навыков используется специальный навык `./custom-skills/USER_SKILL_RULE_V2.md`, который:
+
+- Позволяет создавать новые навыки с использованием всех 6 стратегий контроля
+- Знает, что новый навык нужно имплементировать в Skills Index (хотя иногда может забыть об этом)
+- Использует механизмы "защиты, усиления и контроля" для повышения соблюдаемости правил
+
+### Процесс создания навыка:
+
+1. **Опишите требования** — четко опишите, чего вы хотите от агента
+2. **Проверка понимания** — спросите агента, всё ли ему понятно, нет ли разночтений и неоднозначностей
+3. **Создание навыка** — попросите агента создать навык на основе `USER_SKILL_RULE_V2.md`
+4. **Проверка интеграции** — убедитесь, что навык добавлен в `SKILLS INDEX.md` с правильными ключевыми словами
+
+## Тестирование
+
+Для проверки работы фреймворка:
+
+1. **Опишите задачу** — сформулируйте запрос, который требует специализированных знаний
+2. **Попросите агента сообщить используемые навыки** — попросите агента сообщить, какие навыки он будет использовать для выполнения задачи
+3. **Проверьте применение** — убедитесь, что агент действительно применил знания из указанных навыков
+
+### Пример тестирования:
+
+**Запрос:** "Напиши PowerShell скрипт для проверки статуса Docker контейнеров"
+
+**Ожидаемый ответ агента:**
+```
+Я прочитал SKILLS INDEX.md и обнаружил ключевые слова PowerShell и Docker в запросе.
+Затем я прочитал файлы:
+- custom-skills/POWERSHELL_RULES.md
+- custom-skills/DOCKER_SKILLS.md
+
+Применил следующие правила:
+- Использование ; вместо && для разделения команд
+- Использование Invoke-WebRequest вместо curl
+- Правильный синтаксис Docker команд для PowerShell
+
+Вот скрипт с правильным синтаксисом...
 ```
 
-**Important**: The `anthropics-skills/` directory is excluded from version control via `.gitignore` to avoid committing third-party code.
+## Лицензии
 
-### Step 2: Setup Claude Code Skills
+Этот проект является open source и использует следующие лицензии:
 
-Clone the Claude Code templates repository so that `Skills index.md` can reference the extended skills:
+- **LLM Skills Framework** — MIT License
+- **Anthropic Skills Repository** — MIT License ([источник](https://github.com/anthropics/skills))
+- **Claude Code Templates** — MIT License ([источник](https://github.com/davila7/claude-code-templates))
 
-```powershell
-# Navigate to the skills directory
-cd "D:\My Projects\FrameWork Global\LLM Skills"
-
-# Clone Claude Code skills collection
-git clone https://github.com/davila7/claude-code-templates.git claude-code-templates
-```
-
-**Note**: The `claude-code-templates/` directory is also added to `.gitignore` to avoid committing third-party templates.
-
-### Step 3: Install Global Rule
-
-**⚠️ CRITICAL**: Текст файла `SKILLS RULE.md` должен быть добавлен как **глобальное USER RULE** в Cursor.
-
-**Как это сделать:**
-1. Откройте файл `SKILLS RULE.md`
-2. Скопируйте весь его содержимое
-3. В Cursor перейдите в настройки → Rules → Global Rules (или Project Rules)
-4. Добавьте скопированный текст как новое правило
-
-**Почему это важно:**
-- Именно на основании `SKILLS RULE.md` агент начнет использовать Skills Index
-- Агент будет автоматически подгружать навыки из индекса при обнаружении соответствующих ключевых слов
-- Без этого правила агент не будет использовать систему навыков
-
-**Альтернативные варианты:**
-- Можно добавить в Project Rules вместо Global Rules (если нужно только для конкретного проекта)
-- Можно добавить в role-custom-agent instructions (если используете кастомные роли агентов)
-
-### Step 4: Verify and Update Skills Index
-
-⚠️ **CRITICAL STEP**: Update absolute paths in `Skills index.md`
-
-After cloning/moving this repository to your location, you MUST update all absolute paths in `Skills index.md` to match your workspace location.
-
-**Option 1: Use automated script (Recommended)**
-
-Run the provided PowerShell script to automatically update all paths:
-
-```powershell
-# Navigate to the skills directory
-cd "YOUR_ACTUAL_PATH"
-
-# Run the update script (it will auto-detect your current path)
-.\update-paths.ps1
-
-# Or specify custom path explicitly
-.\update-paths.ps1 -NewPath "C:\Your\Custom\Path\"
-```
-
-**Option 2: Manual update**
-
-1. Open `Skills index.md`
-2. Find and replace all occurrences of the base path:
-   - Old path: `D:\My Projects\FrameWork Global\LLM Skills\`
-   - New path: `YOUR_ACTUAL_PATH\` (e.g., `C:\Projects\LLM Skills\`)
-
-3. Example PowerShell command for manual update:
-```powershell
-# Navigate to the skills directory
-cd "YOUR_ACTUAL_PATH"
-
-# Replace old path with your new path (PowerShell)
-$oldPath = "D:\\My Projects\\FrameWork Global\\LLM Skills\\"
-$newPath = "YOUR_ACTUAL_PATH\\"
-(Get-Content "Skills index.md") -replace [regex]::Escape($oldPath), $newPath | Set-Content "Skills index.md"
-```
-
-**Verify Skills Index contains:**
-- 🚨 Critical importance warnings
-- 🔍 Keyword detection system
-- 🧠 Semantic analysis rules
-- ⚡ Mandatory verification steps
-- 📚 References to anthropics-skills (with UPDATED absolute paths)
-
-### Step 5: Test the Setup
-
-⚠️ **IMPORTANT**: Use a complex test request, NOT a simple one. Simple requests may cause the agent to skip skill usage.
-
-Use this test request to verify the framework works:
-
-```
-Write a PowerShell script that checks Docker container status, waits 5 seconds, then makes an HTTP request to localhost:8080/health. If the service doesn't respond, the script should output an error.
-```
-
-**Expected behavior:**
-- Agent reads Skills index.md
-- Detects PowerShell keywords
-- Studies POWERSHELL_RULES.md
-- Applies PowerShell-specific syntax
-- Mentions which skill was used
-
-**Why this test works:**
-- ✅ Complex multi-step task
-- ✅ Combines Docker + PowerShell + HTTP request
-- ✅ Requires domain-specific knowledge
-- ✅ Forces agent to consult skill files
-
-## 🔍 How It Works
-
-### 1. Keyword Detection
-The system automatically detects relevant skills based on keywords:
-
-| Keywords | Skill Applied |
-|----------|---------------|
-| `powershell`, `ps1`, `script`, `windows` | POWERSHELL_RULES.md |
-| `html`, `react`, `webapp`, `ui` | artifacts-builder/SKILL.md |
-| `playwright`, `automation`, `browser` | playwright-docker-automation/SKILL.md |
-| `document`, `docx`, `pdf`, `xlsx` | document-skills/ |
-| `test`, `testing` | webapp-testing/SKILL.md |
-
-### 2. Semantic Analysis
-Beyond keywords, the system understands intent:
-
-| Request Intent | Skill Applied |
-|----------------|---------------|
-| "Create a script" | PowerShell skills |
-| "Build a website" | Web development skills |
-| "Test my app" | Testing skills |
-| "Generate a document" | Document skills |
-| "Automate browser" | Playwright skills |
-
-### 3. Mandatory Application
-When a relevant skill is detected, the agent MUST:
-- ✅ Read the corresponding skill file
-- ✅ Apply knowledge from the skill
-- ✅ Use correct syntax/commands
-- ✅ Mention which skill was used
-- ✅ Show evidence of skill application
-
-## 📋 Available Skills
-
-### Custom Skills (Project-Specific)
-
-#### Core Development Skills
-- **PowerShell & Windows**: `custom-skills/POWERSHELL_RULES.md`
-  - **Keywords**: `powershell`, `ps1`, `windows`, `cmd`, `bat`, `gradlew`
-  - **Rules**: Command separation, path quoting, HTTP requests, error handling
-
-- **Docker Operations**: `custom-skills/DOCKER_SKILLS.md`
-  - **Keywords**: `docker`, `container`, `docker-compose`, `image`, `volume`
-  - **Rules**: Container management, compose operations, health checks, PowerShell integration
-
-- **Go Language**: `custom-skills/GO_SKILL.md`
-  - **Keywords**: `go`, `golang`, `go language`
-  - **Rules**: Go syntax, best practices, standard library usage
-
-- **Mermaid Diagrams**: `custom-skills/MERMAID_SKILL.md`
-  - **Keywords**: `mermaid`, `diagram`, `flowchart`, `sequence diagram`
-  - **Rules**: Mermaid syntax for creating diagrams
-
-#### 1C/BSL Development Skills
-- **1C/BSL Development**: `custom-skills/1C_BSL_SKILL.md`
-  - **Keywords**: `1с`, `bsl`, `1c:enterprise`, `справочник`, `документ`, `регистр`
-  - **Rules**: BSL syntax, 1C metadata, anti-hallucination validation
-
-- **1C Technical Logging**: `custom-skills/1c_techlog.md`
-  - **Keywords**: `технический журнал`, `techlog`, `1c log`, `debugging 1c`
-  - **Rules**: Technical log analysis, debugging 1C applications
-
-- **YAxUnit Testing**: `custom-skills/YAXUNIT_TESTING_SKILL.md`
-  - **Keywords**: `yaxunit`, `тест`, `тестирование`, `unit test`, `ЮТест`
-  - **Rules**: YAxUnit framework usage, test structure, assertions
-
-#### Methodology Skills
-- **Development Methodology (SDD/TDD/DDD)**: `custom-skills/DEVELOPMENT_METHODOLOGY_RULE.md`
-  - **Keywords**: `sdd`, `tdd`, `ddd`, `методика разработки`, `specification`, `test driven`
-  - **Rules**: Spec Driven Development, Test Driven Development, Domain Driven Development
-  - **Note**: Методика разработки и проектирования для проектов 1С / 1C / BSL
-
-#### Skill Creation
-- **Skill Creation Guidelines**: `custom-skills/USER_SKILL_RULE_V2.md`
-  - **Keywords**: `skill creator`, `create skill`, `bulletproof skill`, `enforcement`
-  - **Rules**: Skill creation patterns, enforcement strategies, compliance protocols
-
-#### Claude Agent Skills Collection
-- **Claude Agent Skills**: `custom-skills/claude-agent-skills/`
-  - Extensive collection of specialized skills organized by domain:
-    - AI Specialists (prompt engineering, LLM maintenance, model evaluation)
-    - Development Team (backend, frontend, fullstack, mobile, iOS)
-    - Database (administration, architecture, optimization, Supabase, Neon)
-    - Security (auditing, penetration testing, compliance)
-    - And many more categories...
-
-**Note**: Check and actualize skills for yourself - this is a living framework that evolves with your needs.
-
-### Official Anthropic Skills (Production-Ready)
-
-
-## 🧪 Testing the Framework
-
-⚠️ **IMPORTANT: Use Complex Test Cases**
-
-When testing the skills framework, **DO NOT use overly simple requests**. Simple tasks may cause the agent to skip skill usage because:
-- The agent considers simple tasks trivial and not requiring specialized knowledge
-- Skills and project rules may be ignored for straightforward requests
-- The framework is designed for complex, multi-step tasks requiring domain expertise
-
-**❌ Bad test examples (too simple):**
-- "Write hello world in PowerShell"
-- "Create a simple HTML page"
-- "Show me a Docker command"
-
-**✅ Good test examples (sufficiently complex):**
-- "Write a PowerShell script that checks Docker container status, waits 5 seconds, then makes an HTTP request to localhost:8080/health"
-- "Create a React component with state management and API integration"
-- "Build a Docker compose setup with health checks and volume management"
+Подробная информация о лицензиях и атрибуциях стороннего ПО доступна в файле `THIRD_PARTY_NOTICES.md`.
 
 ---
 
-### Test Case 1: PowerShell Script
-**Request**: "Write a PowerShell script to check system status"
-
-**Expected Response**:
-```
-I read Skills index.md and detected PowerShell keywords. I studied POWERSHELL_RULES.md and applied the following rules:
-- Command separation using semicolons
-- Proper path quoting with double quotes
-- Using Invoke-WebRequest instead of curl
-- Using Start-Sleep instead of timeout
-
-Here's the script using proper PowerShell syntax:
-[script with correct PowerShell commands]
-```
-
-### Test Case 2: Web Development
-**Request**: "Create a React component for user dashboard"
-
-**Expected Response**:
-```
-I read Skills index.md and detected web development keywords. I studied artifacts-builder/SKILL.md and applied React and Tailwind CSS patterns.
-
-Here's the component using proper React and Tailwind syntax:
-[component with correct React/Tailwind code]
-```
-
-## 📈 Benefits
-
-### Using Official Anthropic Skills
-- **Production-Ready**: Skills used in actual Claude applications
-- **Battle-Tested**: Proven in real-world scenarios
-- **Standardized Format**: Follows official skill creation guidelines
-- **Comprehensive Coverage**: Wide range of domains and use cases
-- **Regular Updates**: Maintained by Anthropic team
-
-### Framework Benefits
-- **Consistent Quality**: All responses use appropriate domain expertise
-- **Correct Syntax**: Proper commands and syntax for each technology
-- **Best Practices**: Established patterns and methodologies applied
-- **Verification**: Clear evidence of skill application
-- **Scalability**: Easy to add new skills and domains
-- **Skill Creation**: Use `skill-creator` to generate new skills from chat data
-
-## 🔄 Maintenance
-
-### Creating New Skills
-Use the official Anthropic skill creation tools:
-
-1. **Use skill-creator**: `anthropics-skills/skill-creator/SKILL.md`
-   - Generate skills from chat data
-   - Follow official skill creation guidelines
-   - Ensure proper YAML frontmatter format
-
-2. **Use template-skill**: `anthropics-skills/template-skill/SKILL.md`
-   - Basic template for new skills
-   - Proper structure and metadata
-   - Example patterns and guidelines
-
-3. **Add to Skills index.md**:
-   - Add keywords for detection
-   - Include semantic analysis rules
-   - Update verification requirements
-
-### Adding New Skills
-1. Create skill file in `custom-skills/` directory using official templates
-2. Add entry to Skills index.md with keywords
-3. Update keyword detection system
-4. Test with sample requests
-
-### Custom Skills Structure
-```
-custom-skills/
-├── POWERSHELL_RULES.md    # PowerShell-specific rules
-├── DOCKER_SKILLS.md       # Docker operations
-└── [your-custom-skill].md # Additional custom skills
-```
-
-### Updating Existing Skills
-1. Modify skill file with new rules/examples
-2. Update Skills index.md if keywords change
-3. Test with existing use cases
-4. Verify backward compatibility
-
-### Syncing with Official Repository
-```powershell
-# Update anthropics-skills from official repository
-cd "D:\My Projects\FrameWork Global\LLM Skills\anthropics-skills"
-git pull origin main
-
-# Or re-clone for fresh copy
-cd "D:\My Projects\FrameWork Global\LLM Skills"
-Remove-Item -Recurse -Force anthropics-skills
-git clone https://github.com/anthropics/skills.git anthropics-skills
-```
-
-## 🎯 Specialized Skills Index for Different Roles
-
-The Skills Index can be customized for different agent roles and project types. Instead of using a single universal Skills Index, you can create specialized versions tailored to specific use cases:
-
-
-### Implementation Strategy
-
-Combine the custom agent (role-playing skills) and developer pipeline for better results.
-
-### Benefits of Specialized Skills Index
-
-- **🎯 Focused Expertise**: Agents become specialists in their domain
-- **⚡ Faster Responses**: Reduced cognitive load with relevant skills only
-- **🔧 Better Accuracy**: Domain-specific rules and patterns
-- **📈 Improved Quality**: Tailored best practices for each role
-- **🚀 Scalability**: Easy to add new roles and specializations
-
-### Example Usage
-
-```powershell
-# For Developer Agent
-Copy-Item "Skills-Index-Developer.md" "Skills index.md"
-Copy-Item "SKILLS RULE.md" "C:\Users\$env:USERNAME\AppData\Roaming\Cursor\User\"
-
-# For Analyst Agent  
-Copy-Item "Skills-Index-Analyst.md" "Skills index.md"
-Copy-Item "SKILLS RULE.md" "C:\Users\$env:USERNAME\AppData\Roaming\Cursor\User\"
-```
+**Примечание:** После клонирования репозитория обязательно обновите пути в `SKILLS RULE.md` и `SKILLS INDEX.md` на ваши локальные пути, иначе система не сможет найти файлы навыков.
