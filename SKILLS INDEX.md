@@ -103,6 +103,18 @@ Apply rules from that file
 
 ---
 
+### Development Methodology (SDD, TDD, DDD)
+**When you detect:**
+- Keywords: `sdd`, `tdd`, `ddd`, `spec driven`, `test driven`, `domain driven`, `методика разработки`, `методика проектирования`, `specification`, `spec`, `requirement`, `design`
+- Russian: `разработка`, `проектирование`, `спецификация`, `требования`, `методика`, `разработка кода`, `модификация кода`
+- Semantic: "development methodology", "spec driven development", "test driven development", "domain driven development", "create specification", "update specification", "write tests before code", "методика разработки для 1С", "методика проектирования для BSL"
+- **Note:** Методика разработки и проектирования для проектов 1С / 1C / BSL. Применяется при разработке новых функций, модификации существующего кода или работе с любыми задачами разработки ПО.
+
+**Then read this file:**
+→ `D:\My Projects\FrameWork Global\LLM Skills\custom-skills\DEVELOPMENT_METHODOLOGY_RULE.md`
+
+---
+
 ### Skill Creation & Enforcement
 **When you detect:**
 - Keywords: `skill creator`, `create skill`, `bulletproof skill`, `enforcement`, `skill builder`, `создание навыка`, `навык с enforcement`
